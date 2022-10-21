@@ -26,7 +26,8 @@
 	pstmt.setString(2, "seoul");
 	int result = pstmt.executeUpdate(); // insert/update/delete로 변경된 행의 '개수' 반환
 	
-	pstmt.close(); // 닫아주고 밑에서 다시 사용 (찌꺼기 남아있어서 닫아야함)
+	//pstmt.close(); --> 이렇게 닫지 말고
+	JdbcTemplate.close(pstmt); // 이렇게 닫아주고 밑에서 다시 사용 (찌꺼기 남아있어서 닫아야함)
 %>
 	<br> insert 개수는 <%= result %> <br>
 <%
@@ -38,7 +39,11 @@
 %>
 	<%= rest.getInt(1) %> | <%= rest.getString(2) %> | <%= rest.getString(3) %> <br>
 <%
-	}
+	} // while 끝
+	
+	JdbcTemplate.close(rest); // 생성의 역순으로 닫기
+	JdbcTemplate.close(pstmt);
+	JdbcTemplate.close(conn);
 %>
 </body>
 </html>
