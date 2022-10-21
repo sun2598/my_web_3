@@ -53,7 +53,7 @@ public class JdbcTemplate {
 			e.printStackTrace();
 		}
 	}
-	public static void close(Statement stmt) { // parent 클래스 하나만 만들어도됨.(다형성)
+	public static void close(Statement stmt) { // parent 클래스 하나만 만들어도됨. (다형성)
 		try {
 			if(stmt != null) stmt.close();
 		} catch (SQLException e) {
