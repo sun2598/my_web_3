@@ -15,7 +15,7 @@
 <%
 //	String sqlInsert = "insert into dept values(seq_test1.nextval, 'abc', 'seoul')";
 	String sqlInsert = "insert into dept values(seq_test1.nextval, ?, ?)"; // 밑에서 set~로 입력받기
-//	String sql = "select * from dept where dname like '%O%'";
+//	String sql = "select * from dept where dname like '%E%'";
 	String sql = "select * from dept where dname like ?"; // ?는 따옴표,와일드카드(% _)와 함께 사용 불가
 	Connection conn = JdbcTemplate.getConnection();
 	
